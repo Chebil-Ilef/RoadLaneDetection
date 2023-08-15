@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-
+# defining Region of Interest (ROI) 
 def roi(image, vertices):
     mask = np.zeros_like(image)
     mask_color = 255
@@ -19,7 +19,7 @@ def draw_lines(image, hough_lines):
     return image
 
 
-
+# lane detection in image
 def process(img):
     height = img.shape[0]
     width = img.shape[1]
@@ -42,20 +42,28 @@ def process(img):
 
     return final_img
 
-
+# read video
 cap = cv2.VideoCapture("Data/lane_vid_test.mp4")
 
+# get frame hieght and width
 frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-fourcc = cv2.VideoWriter_fourcc(*"XVID")
-saved_frame = cv2.VideoWriter("lane_detection_video.avi", fourcc, 30.0, (frame_width, frame_height))
 
+# Xvid codec : XVID
+# define fourCharCode for the output video
+fourCharCode = cv2.VideoWriter_fourcc(*"XVID") 
+saved_frame = cv2.VideoWriter("lane_detection_video.avi", fourCharCode, 30.0, (frame_width, frame_height))
+
+# loop through the video which is a sequence of images
 while cap.isOpened():
+    # get the next frame
     ret, frame = cap.read()
 
     try:
+        # detect road lanes in the frame
         frame = process(frame)
 
+        # save the frame and show it in the result video and window
         saved_frame.write(frame)
         cv2.imshow("frame", frame)
 
