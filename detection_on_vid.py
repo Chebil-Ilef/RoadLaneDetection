@@ -19,9 +19,6 @@ def draw_lines(image, hough_lines):
     return image
 
 
-# img = cv2.imread("saved_frame.jpg")
-# img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
 
 def process(img):
     height = img.shape[0]
@@ -72,6 +69,3 @@ cap.release()
 saved_frame.release()
 cv2.destroyAllWindows()
 
-# result = process(img)
-# plt.imshow(result)
-# plt.show()
