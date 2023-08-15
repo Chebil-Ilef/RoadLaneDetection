@@ -1,11 +1,10 @@
-# Project Title
+# Road Lane Detection
 
-Road Lane Detection
+Road lane detection plays a crucial role in various applications, including autonomous vehicles and driver assistance systems.
 
 # Project Description
 
 This project uses the OpenCV to detect road lanes in an image and in video frames with the help of Artificial Intelligence.
-Road lane detection plays a crucial role in various applications, including autonomous vehicles and driver assistance systems.
 
 ## Requirements
 
@@ -43,8 +42,5 @@ To run the project run
    python detection_on_vid.py
 ```
 
-```bash
-   python lane_detection.py
-```
-
-And have fun testing. You can press q to escape.
+And have fun testing. 
+You can press q to escape.
