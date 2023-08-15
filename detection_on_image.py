@@ -18,7 +18,7 @@ canny = cv2.Canny(gray_img, 100, 200)
 roi_vertices = [(270, 670), (600, 400), (1127, 712)]
 
 
-# Step 5) define ROI function
+# Step5: define ROI function
 def roi(image, vertices):
     mask = np.zeros_like(image)
     mask_color = 255
@@ -27,10 +27,10 @@ def roi(image, vertices):
     return masked_img
 
 
-# Step 6) ROI Image
+# Step6: ROI Image
 roi_image = roi(canny, np.array([roi_vertices], np.int32))
 
-# Step 7) Apply HoughLinesP Method on ROI Image
+# Step7: Apply HoughLinesP Method on ROI Image
 lines = cv2.HoughLinesP(roi_image, 1, np.pi/180, 100, minLineLength=100, maxLineGap=10)
 
 
